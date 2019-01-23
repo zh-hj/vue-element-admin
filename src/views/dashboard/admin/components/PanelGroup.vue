@@ -1,5 +1,6 @@
 <template>
   <el-row :gutter="40" class="panel-group">
+    <h1 style="text-align: center">{{ msg }}</h1><br>
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
       <div class="card-panel" @click="handleSetLineChartData('newVisitis')">
         <div class="card-panel-icon-wrapper icon-people">
@@ -7,7 +8,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">New Visits</div>
-          <count-to :start-val="0" :end-val="102400" :duration="2600" class="card-panel-num"/>
+          <count-to :start-val="0" :end-val="204800" :duration="2600" class="card-panel-num"/>
         </div>
       </div>
     </el-col>
@@ -54,9 +55,15 @@ export default {
   components: {
     CountTo
   },
+  data() {
+    return {
+      msg: 'msg'
+    }
+  },
   methods: {
     handleSetLineChartData(type) {
       this.$emit('handleSetLineChartData', type)
+      this.msg = type
     }
   }
 }
@@ -83,7 +90,7 @@ export default {
         color: #fff;
       }
       .icon-people {
-         background: #40c9c6;
+         background: #c9bb20;
       }
       .icon-message {
         background: #36a3f7;
